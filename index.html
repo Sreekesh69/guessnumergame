@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-image: url(https://storage.googleapis.com/replit/images/1660639050510_3878a7477e43ff5927faf77806a58290.png);
+        background-size: cover;
+    }
+    
+    h1{
+        margin-top: 10%;
+    }
+
+</style>
+<body>
+    <center>
+        <a href="index1.html"></a>
+    <div class="main">
+        <h1>Guess a Number From 1 - 100</h1>
+        <input type="Number" placeholder="Enter the Number">
+        <button type="button" onclick="start()">Submit</button>
+        <h4 id="p"></h4>
+        <h4 id="l">Chances Remaining: 10</h4>
+    </div>
+    </center>
+
+    <script>
+        guess = Math.floor(Math.random()*100);
+        console.log(guess)
+        c = 10
+
+        function start() {
+            if(c > 1){
+                i = document.getElementsByTagName("input")[0].value;
+                if(i > guess){
+                    c--
+                    document.getElementById("p").textContent="Guess low"
+                    document.getElementById("l").textContent="Lives Remaining: "+c
+                }else if(i < guess){
+                    c--;
+                    document.getElementById("p").textContent="Guess High"
+                    document.getElementById("l").textContent="Lives Remaining: "+c
+
+                }
+                else if(i==guess){
+                    alert("Congrats you won!")
+                    document.getElementById("p").textContent="Your Correct"
+                    location.reload()
+                }
+            }else{
+                alert("You Loose...Correct ans: "+guess)
+                location.reload()
+            }
+}
+</script>
+
+    </script>
+    
+</body>
+</html>
